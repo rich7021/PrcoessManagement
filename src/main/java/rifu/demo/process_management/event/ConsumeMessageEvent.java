@@ -3,18 +3,33 @@ package rifu.demo.process_management.event;
 import java.awt.event.ActionEvent;
 
 public class ConsumeMessageEvent extends ActionEvent {
-    private String message;
+    private String document;
+    private String rule;
 
-    public ConsumeMessageEvent(Object source, int id, String command, String message) {
+    public ConsumeMessageEvent (Object source, int id, String command, String document) {
         super(source, id, command);
-        this.message = message;
+        this.document = document;
     }
 
-    public String getMessage() {
-        return message;
+    public ConsumeMessageEvent (Object source, int id, String command, String document, String rule) {
+        super(source, id, command);
+        this.document = document;
+        this.rule = rule;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public String getDocument () {
+        return document;
+    }
+
+    public void setDocument (String document) {
+        this.document = document;
+    }
+
+    public String getRule () {
+        return rule;
+    }
+
+    public void setRule (String rule) {
+        this.rule = rule;
     }
 }
